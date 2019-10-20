@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Skeleton</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Skeleton 3 Div Layout</title>
 </head>
+
 <body>
-    
+    <nav id="title" >
+         <div class="nav-wrapper">
+             <a href="#" class="brand-logo center">What2Fix</a>
+        </div>
+    </nav>
+
+    <div class="container">
+    <div class="row">
+        <div id="left-div" class="col l3 center-align">
+            <h2>Left Div</h2>
+        </div>
+
+        <div id="right-div" class="col l8 offset-l1 center-align">
+            <h2>Right Div</h2>
+            <div id="recipe-div" class="col l12">
+                <h4>Recipe Div</h4>
+            </div>
+
+            <div id="rest-div" class="col l12">
+                <h4>Restauraunt Div</h4>
+            </div>
+        </div>
+
+    </div>
+    </div>
 </body>
+
 </html>

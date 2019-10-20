@@ -1,0 +1,29 @@
+#title {
+    margin: 0 auto;
+    width: 60%;
+}
+
+#left-div {
+    margin-top: 20px;
+    border: solid 2px;
+}
+
+#right-div {
+    margin-top: 20px;
+    border: solid 2px;
+}
+
+#recipe-div {
+    margin-top: 20px;
+    border: solid 2px;
+}
+
+#rest-div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: solid 2px;
+}
+
+.container {
+    width: 90%;
+}
