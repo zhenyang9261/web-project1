@@ -1,7 +1,18 @@
 #title {
+    font-family: 'Lobster', cursive;;
+    background-color: #26C485;
+    text-shadow: 4px 2px rgb(56, 56, 56);
     margin: 0 auto;
     width: 60%;
+    height: 100px;
+    padding-top: 5px;
 }
+
+.title-size {
+    font-size: 80px !important;
+    color: whitesmoke !important;
+    margin: 0 auto;
+} 
 
 #left-div {
     margin-top: 20px;
