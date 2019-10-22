@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./assets/javascript/app.js"></script>
     <title>Skeleton 3 Div Layout</title>
 </head>
 
@@ -26,7 +28,16 @@
     <div class="container">
     <div class="row">
         <div id="left-div" class="col l3 center-align">
-            <h2>Left Div</h2>
+            <h5>Ingredients</h5>
+            <div id="input-ingredients-form">
+                <input placeholder="e.g. Apples, Flour, Sugar" id="user-input-ingredients" type="text" class="center-align">
+                <a class="waves-effect waves-light btn-small" id="input-ingredients__button">Add Ingredient</a>
+            </div>
+
+            <div class="ingredients-list">
+                <ul class="collection with-header">
+                </ul>
+            </div>
         </div>
 
         <div id="right-div" class="col l8 offset-l1 center-align">
