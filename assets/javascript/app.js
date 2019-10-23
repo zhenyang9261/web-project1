@@ -1,3 +1,5 @@
+var recipeList = [];
+
 $(function() {
 
     var ingredients = "";
@@ -16,7 +18,11 @@ $(function() {
 
         }).then(function (response) {
 
-            console.log(response);
+            var objList = {};
+            objList.id = response.id;
+            objList.img = response.image;
+            objList.title = response.title;
+            recipeList.push(objList);
 
         });
 
