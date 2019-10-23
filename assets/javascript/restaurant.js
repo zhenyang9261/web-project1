@@ -622,13 +622,14 @@ var test = {
 // Global variable
 var mymap;
 var restaurants = {};
-var markers = [];
+
 
 // query URL base part
 var queryURL = "https://developers.zomato.com/api/v2.1/geocode?";
 
 // Object to hold query parameters
-var queryParams = { "apikey": "b32c2c14b4902cce45a0bb7619606d1d"};
+//var queryParams = { "apikey": "b32c2c14b4902cce45a0bb7619606d1d"};
+var queryParams = {};
 
 /*
  * Function: to display the map
@@ -638,12 +639,14 @@ function displayMap() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
 
+            // Get the current location coordinates
             lat = position.coords.latitude;
-            lng = position.coords.longitude;
+            lon = position.coords.longitude;
 
-            getRestaurant(lat, lng);
+            console.log("lat: " + lat + " lon: " + lon);
 
-            mymap = L.map('map').setView([lat, lng], 15);
+            // Draw map
+            mymap = L.map('map').setView([lat, lon], 15);
     
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoiemhlbnlhbmc5MjYxIiwiYSI6ImNqdGY3cnBsajA2cm4zeWxsbTM5MnA2dmkifQ.dBaV5k04d2oCmwoESzBmLg', {
                         maxZoom: 18,
@@ -653,8 +656,8 @@ function displayMap() {
                         id: 'mapbox.streets'
             }).addTo(mymap);
         
-            addMarkers();
-
+            // Make Zomato API call and get the restaurants' coordinates
+            getRestaurant(lat, lon);
         });
     }
     
@@ -663,45 +666,75 @@ function displayMap() {
 /*
  * Function: to make API call and get the object
  */
-function getRestaurant(lat, lng) {
+function getRestaurant(lat, lon) {
 
     queryParams.lat = lat;
-    queryParams.lng = lng;
+    queryParams.lon = lon;
+    queryParams.apikey = "b32c2c14b4902cce45a0bb7619606d1d";
 
-    // Get response from Zomato
-    // $.ajax({
-    //     url: queryURL + $.param(queryParams),
-    //     method: "GET"
-    //   }).then(function(response) {
-    //       console.log(response);
-    // });
+    console.log(queryURL + $.param(queryParams));
 
-    var nearbyRest = test.nearby_restaurants;
-    console.log(nearbyRest);
+    //Get response from Zomato
+    $.ajax({
+        url: queryURL + $.param(queryParams),
+        method: "GET"
+      }).then(function(response) {
+        console.log(response);
 
-    for (var i=0; i<nearbyRest.length; i++) {
+        var nearbyRest = response.nearby_restaurants;
+        var markers = [];
+        for (var i=0; i<nearbyRest.length; i++) {
+        
+            // Compose the marker with restaurant details
+            var marker = {};
+            marker["lat"] = nearbyRest[i].restaurant.location.latitude;
+            marker["lon"] = nearbyRest[i].restaurant.location.longitude;
+            marker["name"] = nearbyRest[i].restaurant.name;
+            marker["address"] = nearbyRest[i].restaurant.location.address;
+            marker["cuisines"] = nearbyRest[i].restaurant.cuisines;
+            marker["url"] = nearbyRest[i].restaurant.url;
 
-        var marker = {};
-        marker["lat"] = nearbyRest[i].restaurant.location.latitude;
-        marker["lng"] = nearbyRest[i].restaurant.location.longitude;
-        marker["name"] = nearbyRest[i].restaurant.name;
-        marker["address"] = nearbyRest[i].restaurant.location.address;
+            // Add the marker to the markers array
+            markers.push(marker);
+        }
 
-        markers.push(marker);
-    }
-    console.log(markers);
+        console.log(markers);
+        // Add the markers to the map
+        addMarkers(markers);
+    });
+
+    // var nearbyRest = test.nearby_restaurants;
+    // console.log(nearbyRest);
+
+    // for (var i=0; i<nearbyRest.length; i++) {
+
+    //     var marker = {};
+    //     marker["lat"] = nearbyRest[i].restaurant.location.latitude;
+    //     marker["lon"] = nearbyRest[i].restaurant.location.longitude;
+    //     marker["name"] = nearbyRest[i].restaurant.name;
+    //     marker["address"] = nearbyRest[i].restaurant.location.address;
+    //     marker["cuisines"] = nearbyRest[i].restaurant.cuisines;
+    //     marker["url"] = nearbyRest[i].restaurant.url;
+
+    //     markers.push(marker);
+    // }
+    
+    // console.log(markers);
+    
+    // addMarkers();
 
 }
 
 /*
  * Function: to add markers to the map
  */
-function addMarkers() {
+function addMarkers(markers) {
 
+    // Add the markers
     for(var i=0; i<markers.length; i++) {
     
-        L.marker([markers[i].lat, markers[i].lng]).addTo(mymap)
-            .bindPopup("<b>" + markers[i].name + "</b><br />" + markers[i].address).openPopup();
+        L.marker([markers[i].lat, markers[i].lon]).addTo(mymap)
+            .bindPopup("<b>" + markers[i].name + "</b><br />" + markers[i].address + "<br />" + markers[i].cuisines + "<br /><a target='_blank' href='" + markers[i].url + "'>Details</a>").openPopup();
     }
 }
 
