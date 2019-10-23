@@ -30,6 +30,10 @@
     border: solid 2px;
 }
 
+.text-size {
+    font-size: 12px;
+}
+
 #rest-div {
     margin-top: 20px;
     margin-bottom: 20px;

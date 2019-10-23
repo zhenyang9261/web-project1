@@ -56,6 +56,11 @@ $(function() {
         /* Call getRecipe function to make API request with ingredients argument */
 
         getRecipe(ingredients); /* Uncomment for testing API only  */
+
+        // new
+        $("#recipe-div").empty();
+        $("#recipe-div").append("<div class='row'> <div class='col s12 m7 l4'> <div class='card'> <div class='card-image'> <img src='./assets/burger.jpg'> <span class='card-title'>New Recipe</span> </div> <div class='card-content text-size'> <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p> </div> <div class='card-action text-size'> <a href='#'>Make This!</a> </div> </div> </div> </div>")
+        // new
         
     })
 
