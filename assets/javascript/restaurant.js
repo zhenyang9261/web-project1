@@ -628,7 +628,6 @@ var restaurants = {};
 var queryURL = "https://developers.zomato.com/api/v2.1/geocode?";
 
 // Object to hold query parameters
-//var queryParams = { "apikey": "b32c2c14b4902cce45a0bb7619606d1d"};
 var queryParams = {};
 
 /*

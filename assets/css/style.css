@@ -25,6 +25,7 @@
 }
 
 #recipe-div {
+    font-size: 24px;
     margin-top: 20px;
     border: solid 2px;
 }
@@ -37,4 +38,8 @@
 
 .container {
     width: 90%;
+}
+
+#map {
+    height: 400px;
 }
