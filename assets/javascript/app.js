@@ -34,10 +34,6 @@ $(function() {
 
         $("#user-input-ingredients").val("");
 
-        /* Call getRecipe function to make API request with ingredients argument */
-
-        //getRecipe(ingredients); /* Uncomment for testing API only  */
-
         /* Store list array of ingredients */
 
         var ingredientsList = ingredients.split(",");
@@ -54,5 +50,13 @@ $(function() {
         });
 
     });
+
+    $("#get-recipe-button").on("click", function() {
+
+        /* Call getRecipe function to make API request with ingredients argument */
+
+        getRecipe(ingredients); /* Uncomment for testing API only  */
+        
+    })
 
 });
