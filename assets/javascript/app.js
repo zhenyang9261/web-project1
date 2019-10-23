@@ -1,3 +1,5 @@
+var recipeList = [];
+
 $(function() {
 
     var ingredients = "";
@@ -7,7 +9,7 @@ $(function() {
 
     function getRecipe(ingredients) {
 
-        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=0286efeb2caf42acb2448ecf6ec3249b";
+        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=88df5afa7d444635ad16e4505c402a69";
 
         $.ajax({
 
@@ -15,8 +17,13 @@ $(function() {
             method: "GET"
 
         }).then(function (response) {
-
-            console.log(response);
+            response.forEach(function(response) {
+            var objList = {};
+            objList.id = response.id;
+            objList.img = response.image;
+            objList.title = response.title;
+            recipeList.push(objList);
+            })
 
         });
 
@@ -34,10 +41,6 @@ $(function() {
 
         $("#user-input-ingredients").val("");
 
-        /* Call getRecipe function to make API request with ingredients argument */
-
-        //getRecipe(ingredients); /* Uncomment for testing API only  */
-
         /* Store list array of ingredients */
 
         var ingredientsList = ingredients.split(",");
@@ -54,5 +57,13 @@ $(function() {
         });
 
     });
+
+    $("#get-recipe-button").on("click", function() {
+
+        /* Call getRecipe function to make API request with ingredients argument */
+
+        getRecipe(ingredients); /* Uncomment for testing API only  */
+        
+    })
 
 });
