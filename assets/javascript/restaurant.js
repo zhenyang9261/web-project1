@@ -23,7 +23,7 @@ function displayMap() {
             console.log("lat: " + lat + " lon: " + lon);
 
             // Draw map
-            mymap = L.map('map').setView([lat, lon], 15);
+            mymap = L.map('map').setView([lat, lon], 14);
     
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoiemhlbnlhbmc5MjYxIiwiYSI6ImNqdGY3cnBsajA2cm4zeWxsbTM5MnA2dmkifQ.dBaV5k04d2oCmwoESzBmLg', {
                         maxZoom: 18,
@@ -90,7 +90,7 @@ function addMarkers(markers) {
     for(var i=0; i<markers.length; i++) {
     
         L.marker([markers[i].lat, markers[i].lon]).addTo(mymap)
-            .bindPopup("<b>" + markers[i].name + "</b><br />" + markers[i].address + "<br />" + markers[i].cuisines + "<br /><a target='_blank' href='" + markers[i].url + "'>Details</a>").openPopup();
+            .bindPopup("<b>" + markers[i].name + "</b><br />" + markers[i].address + "<br />" + markers[i].cuisines + "<br /><a target='_blank' href='" + markers[i].url + "'>Details</a>");
     }
 }
 
@@ -99,6 +99,7 @@ $(document).ready(function() {
     $("#rest-btn").on("click", function() {
         event.preventDefault();
         
+        $("#map").attr("style", "height:350px");
         displayMap();
     });
    
