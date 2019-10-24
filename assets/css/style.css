@@ -39,3 +39,7 @@
 .container {
     width: 90%;
 }
+
+#map {
+    height: 400px;
+}
