@@ -51,8 +51,6 @@ function getRestaurant(lat, lon) {
     queryParams.lon = lon;
     queryParams.apikey = "b32c2c14b4902cce45a0bb7619606d1d";
 
-    console.log(queryURL + $.param(queryParams));
-
     //Get response from Zomato
     $.ajax({
         url: queryURL + $.param(queryParams),
@@ -77,7 +75,6 @@ function getRestaurant(lat, lon) {
             markers.push(marker);
         }
 
-        console.log(markers);
         // Add the markers to the map
         addMarkers(markers);
     });
