@@ -1,6 +1,6 @@
 $(function () {
 
-    // var queryURL = "https://api.spoonacular.com/food/jokes/random?apiKey=88df5afa7d444635ad16e4505c402a69"
+    // var queryURL = "https://api.spoonacular.com/food/jokes/random?apiKey=0286efeb2caf42acb2448ecf6ec3249b"
 
     //     $.ajax({
 
