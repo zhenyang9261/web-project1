@@ -33,6 +33,8 @@ function displayMap() {
                         id: 'mapbox.streets'
             }).addTo(mymap);
         
+            L.control.mapCenterCoord().addTo(mymap);
+
             // Make Zomato API call and get the restaurants' coordinates
             getRestaurant(lat, lon);
         });
@@ -99,7 +101,13 @@ $(document).ready(function() {
     $("#rest-btn").on("click", function() {
         event.preventDefault();
         
+        // If the map exists already, remove it, then add a new map 
+        if ($("#map").length)
+            $("#map").remove();
+        $("#map-div").append('<div id="map">');
+
         $("#map").attr("style", "height:350px");
+
         displayMap();
     });
    

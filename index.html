@@ -23,6 +23,10 @@
    
     <script src="assets/javascript/restaurant.js"></script>
 
+    <!-- Map Center Links --> 
+    <link rel="stylesheet" href="assets/Leaflet.MapCenterCoord-v0.7/dist/L.Control.MapCenterCoord.min.css" />
+    <script src="assets/Leaflet.MapCenterCoord-v0.7/dist/L.Control.MapCenterCoord.min.js"></script>
+
     <title>Skeleton 3 Div Layout</title>
 </head>
 
@@ -62,7 +66,7 @@
                 <div class="row">
                     <button id="rest-btn" class="waves-effect waves-light btn-small">Feeling Lazy? Takeout!</button>
                 </div>
-                <div class="row">
+                <div class="row" id="map-div">
                     <div id="map"></div>
                 </div>
             </div>
