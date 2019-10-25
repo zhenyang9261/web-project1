@@ -23,7 +23,7 @@ function displayMap() {
             console.log("lat: " + lat + " lon: " + lon);
 
             // Draw map
-            mymap = L.map('map').setView([lat, lon], 15);
+            mymap = L.map('map').setView([lat, lon], 14);
     
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoiemhlbnlhbmc5MjYxIiwiYSI6ImNqdGY3cnBsajA2cm4zeWxsbTM5MnA2dmkifQ.dBaV5k04d2oCmwoESzBmLg', {
                         maxZoom: 18,
@@ -33,6 +33,8 @@ function displayMap() {
                         id: 'mapbox.streets'
             }).addTo(mymap);
         
+            L.control.mapCenterCoord().addTo(mymap);
+
             // Make Zomato API call and get the restaurants' coordinates
             getRestaurant(lat, lon);
         });
@@ -48,8 +50,6 @@ function getRestaurant(lat, lon) {
     queryParams.lat = lat;
     queryParams.lon = lon;
     queryParams.apikey = "b32c2c14b4902cce45a0bb7619606d1d";
-
-    console.log(queryURL + $.param(queryParams));
 
     //Get response from Zomato
     $.ajax({
@@ -75,7 +75,6 @@ function getRestaurant(lat, lon) {
             markers.push(marker);
         }
 
-        console.log(markers);
         // Add the markers to the map
         addMarkers(markers);
     });
@@ -90,7 +89,7 @@ function addMarkers(markers) {
     for(var i=0; i<markers.length; i++) {
     
         L.marker([markers[i].lat, markers[i].lon]).addTo(mymap)
-            .bindPopup("<b>" + markers[i].name + "</b><br />" + markers[i].address + "<br />" + markers[i].cuisines + "<br /><a target='_blank' href='" + markers[i].url + "'>Details</a>").openPopup();
+            .bindPopup("<b>" + markers[i].name + "</b><br />" + markers[i].address + "<br />" + markers[i].cuisines + "<br /><a target='_blank' href='" + markers[i].url + "'>Details</a>");
     }
 }
 
@@ -99,6 +98,13 @@ $(document).ready(function() {
     $("#rest-btn").on("click", function() {
         event.preventDefault();
         
+        // If the map exists already, remove it, then add a new map 
+        if ($("#map").length)
+            $("#map").remove();
+        $("#map-div").append('<div id="map">');
+
+        $("#map").attr("style", "height:350px");
+
         displayMap();
     });
    
