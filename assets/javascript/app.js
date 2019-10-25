@@ -36,7 +36,7 @@ $(function() {
                     method: "GET"
                 }).then(function (summary) {
 
-                    $("#recipe-div").append(" <div class='col s12 m7 l4'> <div class='card'> <div class='card-image'> <img src='" + recipe.image + "'><span class='card-title'>" + recipe.title + "</span> </div> <div class='card-content text-size'> <p>" + summary.summary + "</p> </div> <div class='card-action text-size'> <a href='#'>Make This!</a> </div> </div> </div>");
+                    $("#recipe-div").append(" <div class='col s12 m7 l4'> <div class='card'> <div class='card-image'> <img src='" + recipe.image + "'><span class='shadow-text card-title'>" + recipe.title + "</span> </div> <div class='card-content text-size'> <p>" + summary.summary + "</p> </div> <div class='card-action text-size'> <a href='#'>Make This!</a> </div> </div> </div>");
                 });
 
             });
