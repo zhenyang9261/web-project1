@@ -1,20 +1,20 @@
 $(function () {
 
-    var queryURL = "https://api.spoonacular.com/food/jokes/random?apiKey=88df5afa7d444635ad16e4505c402a69"
+    // var queryURL = "https://api.spoonacular.com/food/jokes/random?apiKey=88df5afa7d444635ad16e4505c402a69"
 
-        $.ajax({
+    //     $.ajax({
 
-            url: queryURL,
-            method: "GET"
+    //         url: queryURL,
+    //         method: "GET"
 
-        }).then(function (response) {
+    //     }).then(function (response) {
 
-            console.log(response);
-            console.log(response.text);
+    //         console.log(response);
+    //         console.log(response.text);
 
-            $("#recipe-div").html(response.text);
+    //         $("#recipe-div").html(response.text);
 
-        });
+    //     });
 
    
 
