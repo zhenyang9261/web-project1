@@ -17,13 +17,15 @@
 
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
-   
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+
     <script src="assets/javascript/restaurant.js"></script>
 
-    <!-- Map Center Links --> 
+    <!-- Map Center Links -->
     <link rel="stylesheet" href="assets/Leaflet.MapCenterCoord-v0.7/dist/L.Control.MapCenterCoord.min.css" />
     <script src="assets/Leaflet.MapCenterCoord-v0.7/dist/L.Control.MapCenterCoord.min.js"></script>
 
@@ -32,47 +34,57 @@
 
 <body>
     <div class="row">
-    <nav id="title" >
-         <div class="nav-wrapper">
-             <h1 href="#" class="brand-logo center title-size">What2Fix</>
-        </div>
-    </nav>
+        <nav id="title">
+            <div class="nav-wrapper">
+                <h1 href="#" class="brand-logo center title-size">What2Fix</>
+            </div>
+        </nav>
     </div>
 
     <div class="container">
-    <div class="row">
-        <div id="left-div" class="col s12 l3 center-align">
-            <h5>Ingredients</h5>
-            <div id="input-ingredients-form">
-                <input placeholder="e.g. Apples, Flour, Sugar" id="user-input-ingredients" type="text" class="center-align">
-                <a class="waves-effect waves-light btn-small" id="input-ingredients__button">Add Ingredient</a>
-                <a class="waves-effect waves-light btn-small" id="get-recipe-button"> Get Recipe</a>
-            </div>
-
-            <div class="ingredients-list">
-                <ul class="collection with-header">
-                </ul>
-            </div>
-        </div>
-
-        <div id="right-div" class="col s12 l8 offset-l1 center-align">
-            <div id="recipe-div" class="col s12 l12">
-                <h4>Recipe Div</h4>
-            </div>
-
-            <div id="rest-div" class="col s12 l12">
-                <br>
-                <div class="row">
-                    <button id="rest-btn" class="waves-effect waves-light btn-small">Feeling Lazy? Takeout!</button>
+        <div class="row">
+            <div id="left-div" class="col s12 l3 center-align">
+                <h5>Ingredients</h5>
+                <div id="input-ingredients-form">
+                    <input placeholder="e.g. Apples, Flour, Sugar" id="user-input-ingredients" type="text"
+                        class="center-align">
+                    <a class="waves-effect waves-light btn-small" id="input-ingredients__button">Add Ingredient</a>
+                    <a class="waves-effect waves-light btn-small" id="get-recipe-button"> Get Recipe</a>
                 </div>
-                <div class="row" id="map-div">
-                    <div id="map"></div>
+
+                <div class="ingredients-list">
+                    <ul class="collection with-header">
+                    </ul>
                 </div>
             </div>
-        </div>
 
+            <div id="right-div" class="col s12 l8 offset-l1 center-align">
+                <div id="recipe-instructions-div" >
+                    <div id="recipe-instructions" style="height: 100%; width: 100%; background-color: white;">
+                        <h4>Instructions</h4>
+                        <ol id="instructions-list"style="text-align: left">
+                            
+                        </ol>
+                        <button id="back-button">back</button>
+                    </div>
+                    <div id="recipe-div" class="col s12 l12" > </div>
+                    
+                </div>                
+
+                <div id="rest-div" class="col s12 l12">
+                    <br>
+                    <div class="row">
+                        <button id="rest-btn" class="waves-effect waves-light btn-small">Feeling Lazy? Takeout!</button>
+                    </div>
+                    <div class="row" id="map-div">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-    </div>
+
 </body>
 
 </html>
