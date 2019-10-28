@@ -10,7 +10,7 @@ $(function () {
        It uses the ingredients argument as search term. */
     function getRecipe(ingredients) {
 
-        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=85ab2a52cb47409d9017011e0eab106e";
+        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=fb9dbf3da08c4a75970b831b8b66aac9";
 
         $.ajax({
 
@@ -28,7 +28,7 @@ $(function () {
 
                 $.ajax({
 
-                    url: "https://api.spoonacular.com/recipes/" + recipe.id + "/summary?apiKey=85ab2a52cb47409d9017011e0eab106e",
+                    url: "https://api.spoonacular.com/recipes/" + recipe.id + "/summary?apiKey=fb9dbf3da08c4a75970b831b8b66aac9",
                     method: "GET"
                 }).then(function (summary) {
 
@@ -104,7 +104,7 @@ $(function () {
             instructionsObj[id] = { steps: [] };
 
             $.ajax({
-                url: "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?apiKey=85ab2a52cb47409d9017011e0eab106e",
+                url: "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?apiKey=fb9dbf3da08c4a75970b831b8b66aac9",
                 method: "GET"
 
             }).then(function (instructions) {
