@@ -31,7 +31,17 @@ function displayMap() {
                         id: 'mapbox.streets'
             }).addTo(mymap);
         
-            L.control.mapCenterCoord().addTo(mymap);
+            //L.control.mapCenterCoord().addTo(mymap);
+
+            // Add current location marker
+            L.marker([lat, lon], {
+                icon: new L.Icon({
+                    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+                    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                    iconSize: [25, 41],
+                    shadowSize: [41, 41]
+                  })
+              }).bindPopup("<b>You Are Here</b>").addTo(mymap);
 
             // Make Zomato API call and get the restaurants' coordinates
             getRestaurant(lat, lon);
