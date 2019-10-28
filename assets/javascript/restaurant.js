@@ -30,15 +30,13 @@ function displayMap() {
                         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                         id: 'mapbox.streets'
             }).addTo(mymap);
-        
-            //L.control.mapCenterCoord().addTo(mymap);
 
             // Add current location marker
             L.marker([lat, lon], {
                 icon: new L.Icon({
-                    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+                    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
                     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                    iconSize: [25, 41],
+                    iconSize: [35, 41],
                     shadowSize: [41, 41]
                   })
               }).bindPopup("<b>You Are Here</b>").addTo(mymap);
