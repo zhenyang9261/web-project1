@@ -1,8 +1,13 @@
-
-//Store recipe ids
 var idList = [];
 
-$(function () {
+$(document).ready(function(){
+    // open the modal html on click
+    $('.modal').modal();
+
+// global varible for storing the recipe IDs retunred
+var recipeList = []
+
+
 
     var ingredients = "";
 
@@ -23,7 +28,6 @@ $(function () {
 
             response.forEach(function (recipe) {
 
-                // Store each recipe id to global variable
                 idList.push(recipe.id);
 
                 $.ajax({
@@ -32,7 +36,31 @@ $(function () {
                     method: "GET"
                 }).then(function (summary) {
 
-                    $("#recipe-div").append(" <div class='col s12 m7 l4'> <div class='card'> <div class='card-image'> <img src='" + recipe.image + "'><span class='shadow-text card-title'>" + recipe.title + "</span> </div> <div class='card-content text-size'> <p>" + summary.summary + "</p> </div> <div class='card-action text-size' data-id=" + recipe.id + "> <a href='#'>Make This!</a> </div> </div> </div>");
+                    var column = $('<div class="col s12 m7 l4">')
+                    var card = $('<div class="card">');
+                    var cardImage = $('<div class="card-image">')
+                    var image = $('<img>')
+                    image.attr('src', recipe.image);
+                    var span = $('<span class="shadow-text card-title">');
+                    span.text(recipe.title);
+                    var fab = $('<button data-target="modal1" class="btn-floating halfway-fab waves-effect waves-light teal modal-trigger"><i class="material-icons">unfold_more</i></button>')
+                    var actionDiv = $('<div class="card-action text-size">');
+                    var makeThis = $('<a id="instructionsButton" href="#">Make This!</a>');
+                    makeThis.attr("data-id", recipe.id);
+                    fab.attr('data-summary', summary.summary);
+                    actionDiv.append([makeThis]);
+                    cardImage.append([image, span, fab]);
+                    card.append([cardImage, actionDiv]);
+                    column.append(card);
+
+                    $("#recipe-div").append(column);
+
+                    $(".modal-trigger").on("click", function() {
+                        console.log(this);
+                        var summary = $(this).attr("data-summary");
+                        $(".modal-content").html("<h4> Recipe Summary </h4>" + summary);
+                    })
+
                 });
 
             });
@@ -64,10 +92,10 @@ $(function () {
 
         ingredientsList.forEach(function (ingredient) {
 
-            var li = $("<li class='collection-item'>").text(ingredient);
+            var li = $("<li class='collection-item'>").html(ingredient);
+
 
             $(".ingredients-list ul").append(li);
-
         });
 
     });
@@ -118,7 +146,7 @@ $(function () {
         });
     }
 
-    $(document).on("click", ".card-action", function (e) {
+    $(document).on("click", "#instructionsButton", function (e) {
         e.preventDefault();
 
         // Clear instructions list cards
@@ -126,14 +154,11 @@ $(function () {
 
         // Create instructions list based on recipe Id
         instructionsObj[$(this).attr("data-id")].steps.forEach(function (step) {
-
             $("#instructions-list").append("<li>" + step.step + "</li>");
         });
 
         // Toggle animation effect on recipe-instructions and recipe-div
         $("#recipe-instructions").toggle("fold");
         $("#recipe-div").toggle("fold");
-
     });
 });
-

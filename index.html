@@ -7,14 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- style sheets and materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/javascript/app.js"></script>
     <script src="./assets/javascript/joke.js"></script>
+
 
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
@@ -45,7 +47,7 @@
     <div class="container">
         <div class="row">
             <div id="left-div" class="col s12 l3 center-align">
-                <h5>Ingredients</h5>
+                <h5 id="ingred-title">Ingredients</h5>
                 <div id="input-ingredients-form">
                     <input placeholder="e.g. Apples, Flour, Sugar" id="user-input-ingredients" type="text"
                         class="center-align">
@@ -60,18 +62,20 @@
             </div>
 
             <div id="right-div" class="col s12 l8 offset-l1 center-align">
-                <div id="recipe-instructions-div" >
-                    <div id="recipe-instructions" style="height: 100%; width: 100%; background-color: white;">
-                        <h4>Instructions</h4>
-                        <ol id="instructions-list"style="text-align: left">
-                            
-                        </ol>
-                        <a id="back-button" class="waves-effect waves-light btn-small"><i class="material-icons left">chevron_left</i>Go back</a>
-                    </div>
-                    <div id="recipe-div" class="col s12 l12" > </div>
-                    
-                </div>                
 
+                <!-- Recipe cards -->
+                <div id="recipe-div" class="col s12 l12">
+
+                </div>
+
+                <!-- Recipe instructions list -->
+                <div id="recipe-instructions" style="height: 100%; width: 100%; background-color: white;">
+                    <h4>Instructions</h4>
+                    <ol id="instructions-list"style="text-align: left"></ol>
+                    <a id="back-button" class="waves-effect waves-light btn-small"><i class="material-icons left">chevron_left</i>Go back</a>
+                </div>
+
+                <!-- Local restaurants Map -->
                 <div id="rest-div" class="col s12 l12">
                     <br>
                     <div class="row">
@@ -85,7 +89,16 @@
 
         </div>
     </div>
-
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Recipe Summary</h4>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
 </body>
 
 </html>

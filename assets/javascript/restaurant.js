@@ -20,8 +20,6 @@ function displayMap() {
             lat = position.coords.latitude;
             lon = position.coords.longitude;
 
-            console.log("lat: " + lat + " lon: " + lon);
-
             // Draw map
             mymap = L.map('map').setView([lat, lon], 14);
     
@@ -32,8 +30,16 @@ function displayMap() {
                         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                         id: 'mapbox.streets'
             }).addTo(mymap);
-        
-            L.control.mapCenterCoord().addTo(mymap);
+
+            // Add current location marker
+            L.marker([lat, lon], {
+                icon: new L.Icon({
+                    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                    iconSize: [35, 41],
+                    shadowSize: [41, 41]
+                  })
+              }).bindPopup("<b>You Are Here</b>").addTo(mymap);
 
             // Make Zomato API call and get the restaurants' coordinates
             getRestaurant(lat, lon);
@@ -56,7 +62,6 @@ function getRestaurant(lat, lon) {
         url: queryURL + $.param(queryParams),
         method: "GET"
       }).then(function(response) {
-        console.log(response);
 
         var nearbyRest = response.nearby_restaurants;
         var markers = [];
