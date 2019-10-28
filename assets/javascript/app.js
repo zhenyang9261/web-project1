@@ -4,6 +4,7 @@ $(document).ready(function(){
 
 // global varible for storing the recipe IDs retunred
 var recipeList = []
+var recipeSummary
     
 $(function() {
 
@@ -46,7 +47,7 @@ $(function() {
                 }).then(function (details) {
                     console.log(details);
                     
-                    // for (s=0; s<details.length; s++) {
+                    for (s=0; s<details.length; s++) {
                         console.log(details.length);
                         
                         console.log(details[i].summary);
@@ -93,7 +94,7 @@ $(function() {
                         $(".modal-content").append(summary);
                     })
                     // length loop
-                    // }
+                    }
 
                     // $("#recipe-div").append("<div class='card col s12 m7 l4'> <div class='card-image waves-effect waves-block waves-light'><img class='activator' src='" + recipe.image + "'><span class='card-title activator text-size shadow-text'>" + recipe.title + "</div><div class='card-content'><span class='card-title activator grey-text text-darken-4'>Summary<i class='material-icons right'>more_vert</i></span> <p><a class='waves-effect waves-light btn'>Make This!</a></p></div><div class='card-reveal'><span class='card-title'>Summary<i class='material-icons right'>close</i></span><p class='text-size'>" + summary.summary + "</p></div></div>")
                     // $("#recipe-div").append("<div class='card'> <div class='card-image waves-effect waves-block waves-light'><img class='activator' src='images/office.jpg'></div><div class='card-content'><span class='card-title activator grey-text text-darken-4'>Card Title<i class='material-icons right'>more_vert</i></span><p><a href='#'>This is a link</a></p></div><div class='card-reveal'><span class='card-title grey-text text-darken-4'>Card Title<i class='material-icons right'>close</i></span> <p>Here is some more information about this product that is only revealed once clicked on.</p> </div></div>")
