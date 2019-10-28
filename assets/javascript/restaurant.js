@@ -20,8 +20,6 @@ function displayMap() {
             lat = position.coords.latitude;
             lon = position.coords.longitude;
 
-            console.log("lat: " + lat + " lon: " + lon);
-
             // Draw map
             mymap = L.map('map').setView([lat, lon], 14);
     
@@ -56,7 +54,6 @@ function getRestaurant(lat, lon) {
         url: queryURL + $.param(queryParams),
         method: "GET"
       }).then(function(response) {
-        console.log(response);
 
         var nearbyRest = response.nearby_restaurants;
         var markers = [];
