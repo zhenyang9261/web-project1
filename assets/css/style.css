@@ -1,3 +1,7 @@
+body {
+    /* background-color: #007991; */
+}
+
 #title {
     font-family: 'Lobster', cursive;;
     background-color: #26C485;
@@ -5,7 +9,12 @@
     margin: 0 auto;
     width: 100%;
     height: 100px;
-    padding-top: 5px;
+    /* padding-top: 5px; */
+}
+
+#ingred-title {
+    /* font-family: 'Indie Flower', cursive; */
+    /* font-size: 36px; */
 }
 
 .title-size {
@@ -17,6 +26,7 @@
 #left-div {
     margin-top: 20px;
     border: solid 2px;
+    /* background-color: #565554; */
 }
 
 #right-div {
@@ -25,7 +35,7 @@
 }
 
 #recipe-div {
-    font-size: 24px;
+    font-size: 16px;
     margin-top: 20px;
     border: solid 2px;
 }
