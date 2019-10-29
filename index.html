@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- style sheets and materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
@@ -61,10 +62,20 @@
             </div>
 
             <div id="right-div" class="col s12 l8 offset-l1 center-align">
+
+                <!-- Recipe cards -->
                 <div id="recipe-div" class="col s12 l12">
-                    <h4>Recipe Div</h4>
+
                 </div>
 
+                <!-- Recipe instructions list -->
+                <div id="recipe-instructions" style="height: 100%; width: 100%; background-color: white;">
+                    <h4>Instructions</h4>
+                    <ol id="instructions-list"style="text-align: left"></ol>
+                    <a id="back-button" class="waves-effect waves-light btn-small"><i class="material-icons left">chevron_left</i>Go back</a>
+                </div>
+
+                <!-- Local restaurants Map -->
                 <div id="rest-div" class="col s12 l12">
                     <br>
                     <div class="row">
