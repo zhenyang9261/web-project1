@@ -9,13 +9,13 @@ var recipeList = []
 
 
 
-    var ingredients = "";
+    var ingredients = [];
 
     /* Function makes API request for three recipes. 
        It uses the ingredients argument as search term. */
     function getRecipe(ingredients) {
 
-        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=fb9dbf3da08c4a75970b831b8b66aac9";
+        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=85ab2a52cb47409d9017011e0eab106e";
 
         $.ajax({
 
@@ -32,7 +32,7 @@ var recipeList = []
 
                 $.ajax({
 
-                    url: "https://api.spoonacular.com/recipes/" + recipe.id + "/summary?apiKey=fb9dbf3da08c4a75970b831b8b66aac9",
+                    url: "https://api.spoonacular.com/recipes/" + recipe.id + "/summary?apiKey=85ab2a52cb47409d9017011e0eab106e",
                     method: "GET"
                 }).then(function (summary) {
 
@@ -75,9 +75,12 @@ var recipeList = []
 
     $("#input-ingredients__button").click(function () {
 
-        /* Store user input ingredients in global variable */
+        // emptying the ingredients list to allow for extra enttries if user adds anothe item after clicking the get recipe buttons
+        $(".ingredients-list ul").empty();
 
-        ingredients = $("#user-input-ingredients").val();
+        // Store user input ingredients in local variable and push to global variable 
+        var input = $("#user-input-ingredients").val();
+        ingredients.push(input);
 
         /* Clear user ingredients input */
 
@@ -85,7 +88,7 @@ var recipeList = []
 
         /* Store list array of ingredients */
 
-        var ingredientsList = ingredients.split(",");
+        var ingredientsList = ingredients.toString().split(",");
 
         /* Loop through ingredients list and creates a list element with the ingredient text and
            then append it to ingredients list HTML */
@@ -97,7 +100,7 @@ var recipeList = []
 
             $(".ingredients-list ul").append(li);
         });
-
+        
     });
 
     $("#get-recipe-button").on("click", function () {
