@@ -1,43 +1,48 @@
 body {
-    /* background-color: #007991; */
+    /* background-color: #b0bec5; */
+    background-image: url(table-bkg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 #title {
-    font-family: 'Lobster', cursive;;
-    background-color: #26C485;
+    font-family: 'Lobster', cursive;
+    color: #4caf50;
+    font-size: 6em !important;
     text-shadow: 4px 2px rgb(56, 56, 56);
     margin: 0 auto;
     width: 100%;
     height: 100px;
-    /* padding-top: 5px; */
+
 }
 
 #ingred-title {
-    /* font-family: 'Indie Flower', cursive; */
-    /* font-size: 36px; */
-}
-
-.title-size {
-    font-size: 80px !important;
-    color: whitesmoke !important;
-    margin: 0 auto;
+    font-family: 'Indie Flower', cursive;
+    font-size: 3em
 } 
 
 #left-div {
+    background-color:rgba(77,161,169,.60);
     margin-top: 20px;
     border: solid 2px;
-    /* background-color: #565554; */
+    border-radius: 1em;
+    
 }
 
 #right-div {
     margin-top: 20px;
-    border: solid 2px;
+    border: solid 2px; 
+    border-radius: 15px;
+    background-color: rgba(77,161,169,.60);
 }
 
 #recipe-div {
-    font-size: 16px;
-    margin-top: 20px;
-    border: solid 2px;
+    font-family: 'Indie Flower', cursive;
+    /* font-size: 20px; */
+    margin-top: 5px;
+    /* border: solid 2px; */
 }
 
 .text-size {
@@ -48,12 +53,37 @@ body {
     text-shadow: 3px 3px 3px black;
 }
 
+.card .card-title {
+    font-size: 1.5em;
+}
+
 #rest-div {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: solid 2px;
+    /* margin-top: 20px; */
+    /* margin-bottom: 20px; */
+    /* border: solid 2px; */
 }
 
 .container {
     width: 90%;
+}
+
+#user-input-ingredients::placeholder {
+    color: rgb(80, 80, 80);
+}
+
+/* Joke Styling */
+#joke-text {
+    font-size: 1.5em;
+}
+hr {
+    border-style: solid;
+    border-width: 1px;
+}
+
+/* Instructions Styling */
+#back-button {
+    margin-bottom: 20px;
+}
+#instructionsButton {
+    font-size: 16px;
 }
