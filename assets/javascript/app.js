@@ -15,7 +15,7 @@ var recipeList = []
        It uses the ingredients argument as search term. */
     function getRecipe(ingredients) {
 
-        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=85ab2a52cb47409d9017011e0eab106e";
+        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=b52ff59b76aa49f2873c01370b4d2a33";
 
         $.ajax({
 
@@ -32,7 +32,7 @@ var recipeList = []
 
                 $.ajax({
 
-                    url: "https://api.spoonacular.com/recipes/" + recipe.id + "/summary?apiKey=85ab2a52cb47409d9017011e0eab106e",
+                    url: "https://api.spoonacular.com/recipes/" + recipe.id + "/summary?apiKey=b52ff59b76aa49f2873c01370b4d2a33",
                     method: "GET"
                 }).then(function (summary) {
 
@@ -43,7 +43,7 @@ var recipeList = []
                     image.attr('src', recipe.image);
                     var span = $('<span class="shadow-text card-title">');
                     span.text(recipe.title);
-                    var fab = $('<button data-target="modal1" class="btn-floating halfway-fab waves-effect waves-light teal modal-trigger"><i class="material-icons">unfold_more</i></button>')
+                    var fab = $('<button data-target="modal1" class="btn-floating halfway-fab waves-effect waves-light teal modal-trigger"><i class="material-icons orange lighten-1">unfold_more</i></button>')
                     var actionDiv = $('<div class="card-action text-size">');
                     var makeThis = $('<a id="instructionsButton" href="#">Make This!</a>');
                     makeThis.attr("data-id", recipe.id);
@@ -135,7 +135,7 @@ var recipeList = []
             instructionsObj[id] = { steps: [] };
 
             $.ajax({
-                url: "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?apiKey=fb9dbf3da08c4a75970b831b8b66aac9",
+                url: "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?apiKey=b52ff59b76aa49f2873c01370b4d2a33",
                 method: "GET"
 
             }).then(function (instructions) {

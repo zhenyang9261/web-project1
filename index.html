@@ -32,16 +32,16 @@
     <link rel="stylesheet" href="assets/Leaflet.MapCenterCoord-v0.7/dist/L.Control.MapCenterCoord.min.css" />
     <script src="assets/Leaflet.MapCenterCoord-v0.7/dist/L.Control.MapCenterCoord.min.js"></script>
 
-    <title>Skeleton 3 Div Layout</title>
+    <title>What2Fix - Recipe Finder</title>
 </head>
 
 <body>
     <div class="row">
-        <nav id="title">
-            <div class="nav-wrapper">
-                <h1 href="#" class="brand-logo center title-size">What2Fix</>
+        <!-- <nav id="title"> -->
+            <div class="col s12 m12 l12 center-align">
+                <h1 href="#" id="title" class="brand-logo center">What2Fix</h1>
             </div>
-        </nav>
+        <!-- </nav> -->
     </div>
 
     <div class="container">
@@ -51,8 +51,8 @@
                 <div id="input-ingredients-form">
                     <input placeholder="e.g. Apples, Flour, Sugar" id="user-input-ingredients" type="text"
                         class="center-align">
-                    <a class="waves-effect waves-light btn-small" id="input-ingredients__button">Add Ingredient</a>
-                    <a class="waves-effect waves-light btn-small" id="get-recipe-button"> Get Recipe</a>
+                    <a class="waves-effect waves-light btn-small orange lighten-1" id="input-ingredients__button">Add Ingredient</a>
+                    <a class="waves-effect waves-light btn-small orange lighten-1" id="get-recipe-button"> Get Recipe</a>
                 </div>
 
                 <div class="ingredients-list">
@@ -65,21 +65,21 @@
 
                 <!-- Recipe cards -->
                 <div id="recipe-div" class="col s12 l12">
-
+                    
                 </div>
 
                 <!-- Recipe instructions list -->
                 <div id="recipe-instructions" style="height: 100%; width: 100%; background-color: white;">
                     <h4>Instructions</h4>
                     <ol id="instructions-list"style="text-align: left"></ol>
-                    <a id="back-button" class="waves-effect waves-light btn-small"><i class="material-icons left">chevron_left</i>Go back</a>
+                    <a id="back-button" class="waves-effect waves-light btn-small orange lighten-1"><i class="material-icons left">chevron_left</i>Go back</a>
                 </div>
 
                 <!-- Local restaurants Map -->
                 <div id="rest-div" class="col s12 l12">
                     <br>
                     <div class="row">
-                        <button id="rest-btn" class="waves-effect waves-light btn-small">Feeling Lazy? Takeout!</button>
+                        <button id="rest-btn" class="waves-effect waves-light btn-small orange lighten-1">Feeling Lazy? Takeout!</button>
                     </div>
                     <div class="row" id="map-div">
                         <div id="map"></div>
