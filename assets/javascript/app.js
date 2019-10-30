@@ -12,6 +12,7 @@ $(document).ready(function(){
        It uses the ingredients argument as search term. */
     function getRecipe(ingredients) {
 
+        idList.length = 0;
         var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=b52ff59b76aa49f2873c01370b4d2a33";
 
         $.ajax({
