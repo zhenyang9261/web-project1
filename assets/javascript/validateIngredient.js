@@ -1,3 +1,4 @@
+var apiKey = "85ab2a52cb47409d9017011e0eab106e"
 $(function () {
 
     /* Store input ingredients */
@@ -16,7 +17,7 @@ $(function () {
         if (input) {
             input.forEach(function (ingredient) {
                 $.ajax({
-                    url: "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredient + "&number=1&apiKey=17c14845089c4d569f3be69637ca970a",
+                    url: "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredient + "&number=1&apiKey=" + apiKey + "",
                     method: "GET"
                 }).then(function (response) {
 
@@ -38,8 +39,16 @@ $(function () {
                             $(".ingredients-list ul").append(li);
                         }
                     }
+                    /* If input is not a valid ingredient, shake the div to notify */
+                    else {
+                        $("#left-div").effect("shake")
+                    }
                 });
             });
+        }
+        /* If no input, shake the div to notify */
+        else {
+            $("#left-div").effect("shake");
         }
         /* Clear user ingredients input */
         $("#user-input-ingredients").val("");
