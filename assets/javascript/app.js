@@ -1,5 +1,6 @@
 /* Store recipe's Ids */
 var idList = [];
+var apiKey = "17c14845089c4d569f3be69637ca970a";
 
 $(document).ready(function () {
     /* Open the modal html on click to show recipe description*/
@@ -13,7 +14,7 @@ $(document).ready(function () {
     function getRecipe(ingredients) {
 
         idList.length = 0;
-        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=6582ae904ea0418f99c41f720bf50fbf";
+        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=" + apiKey;
 
         $.ajax({
 
@@ -30,7 +31,7 @@ $(document).ready(function () {
 
                 $.ajax({
 
-                    url: "https://api.spoonacular.com/recipes/" + recipe.id + "/summary?apiKey=6582ae904ea0418f99c41f720bf50fbf",
+                    url: "https://api.spoonacular.com/recipes/" + recipe.id + "/summary?apiKey=" + apiKey,
                     method: "GET"
                 }).then(function (summary) {
 
@@ -109,7 +110,7 @@ $(document).ready(function () {
             instructionsObj[id] = { steps: [] };
 
             $.ajax({
-                url: "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?apiKey=6582ae904ea0418f99c41f720bf50fbf",
+                url: "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?apiKey=" + apiKey,
                 method: "GET"
 
             }).then(function (instructions) {
@@ -120,7 +121,7 @@ $(document).ready(function () {
                         instructionsObj[id].steps.push(step);
                     });
                 } else {
-                    instructionsObj[id].steps.push({step: false});
+                    instructionsObj[id].steps.push({ step: false });
                 }
             });
         });

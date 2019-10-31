@@ -1,7 +1,7 @@
 /* Makes API call to get random joke and append it to HTML initial page load */
 $(function () {
 
-    var queryURL = "https://api.spoonacular.com/food/jokes/random?apiKey=6582ae904ea0418f99c41f720bf50fbf"
+    var queryURL = "https://api.spoonacular.com/food/jokes/random?apiKey=17c14845089c4d569f3be69637ca970a"
 
     $.ajax({
 

@@ -16,7 +16,7 @@ $(function () {
         if (input) {
             input.forEach(function (ingredient) {
                 $.ajax({
-                    url: "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredient + "&number=1&apiKey=6582ae904ea0418f99c41f720bf50fbf",
+                    url: "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredient + "&number=1&apiKey=17c14845089c4d569f3be69637ca970a",
                     method: "GET"
                 }).then(function (response) {
 
