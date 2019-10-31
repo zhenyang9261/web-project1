@@ -13,7 +13,7 @@ $(document).ready(function () {
     function getRecipe(ingredients) {
 
         idList.length = 0;
-        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=b52ff59b76aa49f2873c01370b4d2a33";
+        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + ingredients + "&number=3&apiKey=6582ae904ea0418f99c41f720bf50fbf";
 
         $.ajax({
 
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
                 $.ajax({
 
-                    url: "https://api.spoonacular.com/recipes/" + recipe.id + "/summary?apiKey=b52ff59b76aa49f2873c01370b4d2a33",
+                    url: "https://api.spoonacular.com/recipes/" + recipe.id + "/summary?apiKey=6582ae904ea0418f99c41f720bf50fbf",
                     method: "GET"
                 }).then(function (summary) {
 
@@ -67,13 +67,22 @@ $(document).ready(function () {
     /* Add click event to get recipe button */
     $("#get-recipe-button").on("click", function () {
 
+        /* Clear ingredients array */
         ingredients.length = 0;
+
+        /* Store all list elements from ingredients-list */
         var elements = $(".ingredients-list ul").children();
+
+        /* Loop through ingredients-list and get each element text(ingredient name) and 
+           store it in ingredients variable */
         $.each(elements, function (i, value) {
-            ingredients.push(value.innerText);
+            ingredients.push(value.firstChild.data);
         });
 
-        getRecipe(ingredients.join(","));
+        /* If ingredients array is empty prevent call to getRecipe function */
+        if (ingredients.length > 0) {
+            getRecipe(ingredients.join(","));
+        }
     });
 
     /* Add click event to back-button */
@@ -100,15 +109,19 @@ $(document).ready(function () {
             instructionsObj[id] = { steps: [] };
 
             $.ajax({
-                url: "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?apiKey=b52ff59b76aa49f2873c01370b4d2a33",
+                url: "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?apiKey=6582ae904ea0418f99c41f720bf50fbf",
                 method: "GET"
 
             }).then(function (instructions) {
 
-                /* Get instructions from API response and store it in global variable */
-                instructions[0].steps.forEach(function (step) {
-                    instructionsObj[id].steps.push(step);
-                });
+                if (instructions[0]) {
+                    /* Get instructions from API response and store it in global variable */
+                    instructions[0].steps.forEach(function (step) {
+                        instructionsObj[id].steps.push(step);
+                    });
+                } else {
+                    instructionsObj[id].steps.push({step: false});
+                }
             });
         });
     }
@@ -122,7 +135,11 @@ $(document).ready(function () {
 
         /* Create instructions list based on recipe Id */
         instructionsObj[$(this).attr("data-id")].steps.forEach(function (step) {
-            $("#instructions-list").append("<li>" + step.step + "</li>");
+            if (step.step) {
+                $("#instructions-list").append("<li>" + step.step + "</li>");
+            } else {
+                $("#instructions-list").append("<p>Instructions are currently unavailable for this recipe, please try another recipe.</p>");
+            }
         });
 
         /* Toggle animation effect on recipe-instructions and recipe-div */
