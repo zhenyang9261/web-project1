@@ -1,6 +1,6 @@
 /* Store recipe's Ids */
 var idList = [];
-var apiKey = "17c14845089c4d569f3be69637ca970a";
+var apiKey = "85ab2a52cb47409d9017011e0eab106e";
 
 $(document).ready(function () {
     /* Open the modal html on click to show recipe description*/
