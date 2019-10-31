@@ -1,7 +1,7 @@
 /* Store recipe's Ids */
 var idList = [];
 
-$(document).ready(function(){
+$(document).ready(function () {
     /* Open the modal html on click to show recipe description*/
     $('.modal').modal();
 
@@ -53,7 +53,7 @@ $(document).ready(function(){
 
                     $("#recipe-div").append(column);
 
-                    $(".modal-trigger").on("click", function() {
+                    $(".modal-trigger").on("click", function () {
                         var summary = $(this).attr("data-summary");
                         $(".modal-content").html("<h4> Recipe Summary </h4>" + summary);
                     })
@@ -64,32 +64,16 @@ $(document).ready(function(){
         });
     }
 
-    /* Add click event to input-ingredients__button */
-    $("#input-ingredients__button").click(function () {
-        /* emptying the ingredients list to allow for extra entries if user adds another item after clicking the get recipe buttons */
-        $(".ingredients-list ul").empty();
-
-        /* Store user input ingredients in local variable and push to global variable  */
-        var input = $("#user-input-ingredients").val();
-        ingredients.push(input);
-
-        /* Clear user ingredients input */
-        $("#user-input-ingredients").val("");
-
-        /* Store list array of ingredients */
-        var ingredientsList = ingredients.toString().split(",");
-
-        /* Loop through ingredients list and creates a list element with the ingredient text and
-           then append it to ingredients list HTML */
-        ingredientsList.forEach(function (ingredient) {
-            var li = $("<li class='collection-item'>").html(ingredient);
-            $(".ingredients-list ul").append(li);
-        });
-    });
-
+    /* Add click event to get recipe button */
     $("#get-recipe-button").on("click", function () {
-        /* Call getRecipe function to make API request with ingredients argument */
-        getRecipe(ingredients);
+
+        ingredients.length = 0;
+        var elements = $(".ingredients-list ul").children();
+        $.each(elements, function (i, value) {
+            ingredients.push(value.innerText);
+        });
+
+        getRecipe(ingredients.join(","));
     });
 
     /* Add click event to back-button */
