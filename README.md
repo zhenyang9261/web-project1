@@ -2,6 +2,8 @@
 
 Have you ever had a long day, forget to run by the store and then have to no idea what to make when you get home? We all have. Using the What2Fix will allow you simlify your evening by taking the guess work out of what to make for dinner, using what you have in the pantry or fridge. The What2Fix app takes ingredients that you input and gives you tailored recipes that you can make with those ingredients (and usually some common kitchen items i.e. flour, sugar, salt, oil etc.). If you dont see anything you like, you can checkout restaurants near your current location and either dine-in, carry-out or order delivery.
 
+![](./photos/main.png)
+
 ## Getting Started
 
 It is very easy to begin using the app at home, yourself!
@@ -11,6 +13,12 @@ Some notes to help you have the best user experience:
 
 - You can enter ingredients individually OR all together, with each ingredient separated by a comma (,)
 - You can add new ingredients at any point in time. Just click "get recipes" to get new recipes based on your new ingredients list.
+
+![](./photos/recipe.png)
+
+![](./photos/summary.png)
+
+![](./photos/map.png)
 
 ## Mobile Friendly
 
@@ -31,4 +39,4 @@ Feel free to open the app on your favorite mobile device or use the developer to
 
 * Zhen Yang - [GitHub](https://github.com/zhenyang9261)
 * Elmer Carrasco - [GitHub](https://github.com/galoelmer)
-* Charlie Slone - [GitHub](https://github.com/ctslone) - [LinkedIn](https://www.linkedin.com/in/charlie-slone-704311a9/)
+* Charlie Slone - [GitHub](https://github.com/ctslone) - [LinkedIn](https://www.linkedin.com/in/charlie-slone-704311a9/) - [Portfolio](https://ctslone.github.io/Updated-Portfolio/)
